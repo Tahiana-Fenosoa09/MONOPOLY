@@ -1,0 +1,167 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --brown:    #7B4B9E;
+  --lightblue:#6CB4E4;
+  --pink:     #D63384;
+  --orange:   #E67E22;
+  --red:      #E74C3C;
+  --yellow:   #F1C40F;
+  --green:    #27AE60;
+  --darkblue: #2C3E90;
+  --board-bg: #e8f5e2;
+  --grid-line:#b0c8a0;
+  --cell-bg:  #ffffff;
+  --corner-bg:#f5f5e8;
+  --dark:     #1a3d0f;
+  --gold:     #c9a227;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #1a6b2f;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* padding: 20px; */
+  overflow:hidden;
+}
+
+/* ===== BOARD CONTAINER ===== */
+#game-card {
+  width: min(90vh, 90vw);
+  aspect-ratio: 1;
+  background: var(--board-bg);
+  border: 3px solid var(--dark);
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6), inset 0 0 0 3px rgba(0,0,0,0.08);
+  display: grid;
+  /* 11 columns: coin(80) + 9×1fr + coin(80) */
+  grid-template-columns: 80px repeat(9, 1fr) 80px;
+  grid-template-rows:    80px repeat(9, 1fr) 80px;
+  gap: 1px;
+  background-color: var(--grid-line);
+  padding: 1px;
+  overflow: hidden;
+}
+
+/* ===== CENTER ===== */
+#center {
+  grid-row: 2 / 11;
+  grid-column: 2 / 11;
+  background: var(--board-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid var(--grid-line);
+}
+
+#center-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 48px);
+  font-weight: 900;
+  color: #1a6b2f;
+  letter-spacing: 5px;
+  text-align: center;
+  line-height: 1.15;
+  text-shadow: 1px 2px 0 rgba(0,0,0,0.1);
+}
+
+#center-icon {
+  font-size: clamp(28px, 5vw, 56px);
+}
+
+/* ===== CELLS ===== */
+.case {
+  background: var(--cell-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: clamp(5px, 0.85vw, 8.5px);
+  text-align: center;
+  overflow: hidden;
+  border: 0;
+  padding: 2px;
+}
+
+.coin {
+  background: var(--corner-bg);
+  font-size: clamp(7px, 1.1vw, 11px);
+}
+
+.case-nom {
+  font-weight: 600;
+  line-height: 1.25;
+  padding: 0 2px;
+  word-break: break-word;
+  hyphens: auto;
+  max-width: 100%;
+}
+
+.case-icone {
+  font-size: 1.6em;
+  margin-bottom: 2px;
+}
+
+.case-prix {
+  color: #27ae60;
+  font-size: 0.88em;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* color bands */
+.bande {
+  position: absolute;
+  opacity: 0.95;
+}
+.bande-haut    { top: 0; left: 0; right: 0; height: 22%; }
+
+.bande-bas { bottom: 0; left: 0; right: 0; height: 22%; }
+
+.bande-droite  { right: 0; top: 0; bottom: 0; width: 22%; }
+
+.bande-gauche   { left: 0; top: 0; bottom: 0; width: 22%; }
+
+/* ===== CORNER SPECIFICS ===== */
+.coin-depart   { font-size: clamp(9px,1.3vw,13px); }
+.coin-prison { font-size: clamp(8px,1.1vw,11px); }
+.coin-parc { font-size: clamp(8px,1.1vw,11px); }
+.coin-aller-prison  { font-size: clamp(8px,1.1vw,11px); }
+
+.coin-libelle {
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  padding: 4px;
+}
+.coin-sous-titre {
+  font-size: 0.75em;
+  color: #555;
+  font-weight: 400;
+}
+
+
+.rangee-pions {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 4px;
+}
+.pion {
+  width: clamp(12px,1.6vw,20px);
+  height: clamp(12px,1.6vw,20px);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: clamp(7px,1vw,12px);
+  border: 1.5px solid rgba(255,255,255,0.7);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style (2).css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="style style1">
+        <img src="img/cash.png" alt="">
+    </div>
+    <div class="style style2">
+        <img src="img/light.png" alt="">
+    </div>
+    <div class="style style3">
+        <img src="img/jail.png" alt="">
+    </div>
+    <div class="style style4">
+        <img src="img/treasure.png" alt="">
+    </div>
+    <header>
+        <div class="all-players-default">
+            <h1>Active Players</h1>
+            <hr>
+            <div class="player-grid">
+                
+            </div>
+        </div>
+        <div class="monopoly-logo">
+            <img src="img/Monopoly__products_at_Zazzle-removebg-preview.png" alt="">
+            <h1>MONOPOLY</h1>
+        </div>
+        <div class="stock-gestion-default">
+            <button class="stock-button">
+                SEE STOCK
+            </button>
+        </div>
+    </header>
+    <section class="begining-section">
+        <div class="begining-card">
+            <h1>Create a new game</h1>
+            <div class="select-part">
+                <select name="" id="selectOption">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <div class="select-icon">
+                    <i class="fa-solid fa-circle-down fa-xl"></i>
+                </div>
+            </div>
+            <button id="begining-button">Next</button>
+        </div>
+        <form class="player-info-defaulthide">
+            <h1>Enter player pseudo</h1>
+            <div class="player-inputs"></div>
+            <button id="player-info-button">Save information</button>
+        </form>
+        <div class="load-animation-default">
+            <h1>Creating game</h1>
+            <div class="img-container">
+                <img src="img/360_F_417419275_y8vQY8TXGRpQGpsgkkqihUaWpmtukRhY-removebg-preview.png" alt="">
+            </div>
+        </div>
+    </section> 
+    <section class="game-section" style="display:none;">
+        <div id="game-card">
+
+            <!-- ===== CENTER ===== -->
+            <div id="center">
+                <div id="center-icon">🎩</div>
+                <div id="center-logo">MONOPOLY</div>
+            </div>
+
+
+
+            <!-- col 1: Prison / Simple Visite (corner) -->
+            <div class="case coin coin-prison" style="grid-row:11;grid-column:1;">
+                <div class="coin-libelle">🔒 Prison /<br>Simple Visite</div>
+            </div>
+
+            <!-- col 2: Boulevard de la Villette -->
+            <div class="case" style="grid-row:11;grid-column:2;">
+                <div class="bande bande-haut" style="background:var(--pink)"></div>
+                <div class="case-nom">Boulevard de la Villette</div>
+                <div class="case-prix">140€</div>
+            </div>
+
+            <!-- col 3: Compagnie d'Électricité -->
+            <div class="case" style="grid-row:11;grid-column:3;">
+                <div class="case-icone">⚡</div>
+                <div class="case-nom">Compagnie d'Électricité</div>
+                <div class="case-prix">150€</div>
+            </div>
+
+            <!-- col 4: Avenue de Neuilly -->
+            <div class="case" style="grid-row:11;grid-column:4;">
+                <div class="bande bande-haut" style="background:var(--pink)"></div>
+                <div class="case-nom">Avenue de Neuilly</div>
+                <div class="case-prix">140€</div>
+            </div>
+
+            <!-- col 5: Rue de Paradis -->
+            <div class="case" style="grid-row:11;grid-column:5;">
+                <div class="bande bande-haut" style="background:var(--pink)"></div>
+                <div class="case-nom">Rue de Paradis</div>
+                <div class="case-prix">160€</div>
+            </div>
+
+            <!-- col 6: Gare de Lyon -->
+            <div class="case" style="grid-row:11;grid-column:6;">
+                <div class="case-icone">🚉</div>
+                <div class="case-nom">Gare de Lyon</div>
+                <div class="case-prix">200€</div>
+            </div>
+
+            <!-- col 7: Avenue Mozart -->
+            <div class="case" style="grid-row:11;grid-column:7;">
+                <div class="bande bande-haut" style="background:var(--orange)"></div>
+                <div class="case-nom">Avenue Mozart</div>
+                <div class="case-prix">180€</div>
+            </div>
+
+            <!-- col 8: Caisse Communauté -->
+            <div class="case" style="grid-row:11;grid-column:8;">
+                <div class="case-icone">📦</div>
+                <div class="case-nom">Caisse Communauté</div>
+            </div>
+
+            <!-- col 9: Boulevard Saint-Michel -->
+            <div class="case" style="grid-row:11;grid-column:9;">
+                <div class="bande bande-haut" style="background:var(--orange)"></div>
+                <div class="case-nom">Boulevard Saint-Michel</div>
+                <div class="case-prix">180€</div>
+            </div>
+
+            <!-- col 10: Place Pigalle -->
+            <div class="case" style="grid-row:11;grid-column:10;">
+                <div class="bande bande-haut" style="background:var(--orange)"></div>
+                <div class="case-nom">Place Pigalle</div>
+                <div class="case-prix">200€</div>
+            </div>
+
+            <!-- col 11: Parc Gratuit (corner) -->
+            <div class="case coin coin-parc" style="grid-row:11;grid-column:11;">
+                <div class="coin-libelle">🌳 Parc<br>Gratuit</div>
+            </div>
+
+
+
+            <!-- col 1: Départ (corner) -->
+            <div class="case coin coin-depart" style="grid-row:1;grid-column:1;">
+                <div class="coin-libelle">🏁 Départ</div>
+                <div class="rangee-pions">
+                    <div class="pion" style="background:#e74c3c;">♟</div>
+                    <div class="pion" style="background:#3498db;">♞</div>
+                    <div class="pion" style="background:#27ae60;">♜</div>
+                    <div class="pion" style="background:#f39c12;">♛</div>
+                </div>
+            </div>
+
+            <!-- col 2: Boulevard de Belleville -->
+            <div class="case" style="grid-row:1;grid-column:2;">
+                <div class="bande bande-bas" style="background:var(--brown)"></div>
+                <div class="case-nom">Boulevard de Belleville</div>
+                <div class="case-prix">60€</div>
+            </div>
+
+            <!-- col 3: Caisse Communauté -->
+            <div class="case" style="grid-row:1;grid-column:3;">
+                <div class="case-icone">📦</div>
+                <div class="case-nom">Caisse Communauté</div>
+            </div>
+
+            <!-- col 4: Rue Lecourbe -->
+            <div class="case" style="grid-row:1;grid-column:4;">
+                <div class="bande bande-bas" style="background:var(--brown)"></div>
+                <div class="case-nom">Rue Lecourbe</div>
+                <div class="case-prix">60€</div>
+            </div>
+
+            <!-- col 5: Impôts sur le Revenu -->
+            <div class="case" style="grid-row:1;grid-column:5;">
+                <div class="case-icone">💸</div>
+                <div class="case-nom">Impôts sur le Revenu</div>
+                <div class="case-prix">200€</div>
+            </div>
+
+            <!-- col 6: Gare Montparnasse -->
+            <div class="case" style="grid-row:1;grid-column:6;">
+                <div class="case-icone">🚉</div>
+                <div class="case-nom">Gare Montparnasse</div>
+                <div class="case-prix">200€</div>
+            </div>
+
+            <!-- col 7: Rue de Vaugirard -->
+            <div class="case" style="grid-row:1;grid-column:7;">
+                <div class="bande bande-bas" style="background:var(--lightblue)"></div>
+                <div class="case-nom">Rue de Vaugirard</div>
+                <div class="case-prix">100€</div>
+            </div>
+
+            <!-- col 8: Chance -->
+            <div class="case" style="grid-row:1;grid-column:8;">
+                <div class="case-icone">🃏</div>
+                <div class="case-nom">Chance</div>
+            </div>
+
+            <!-- col 9: Rue de Courcelles -->
+            <div class="case" style="grid-row:1;grid-column:9;">
+                <div class="bande bande-bas" style="background:var(--lightblue)"></div>
+                <div class="case-nom">Rue de Courcelles</div>
+                <div class="case-prix">100€</div>
+            </div>
+
+            <!-- col 10: Avenue de la République -->
+            <div class="case" style="grid-row:1;grid-column:10;">
+                <div class="bande bande-bas" style="background:var(--lightblue)"></div>
+                <div class="case-nom">Avenue de la République</div>
+                <div class="case-prix">120€</div>
+            </div>
+
+            <!-- col 11: Allez en Prison (corner) -->
+            <div class="case coin coin-aller-prison" style="grid-row:1;grid-column:11;">
+                <div class="coin-libelle">🚔 Allez en<br>Prison</div>
+            </div>
+
+
+            <!-- row 10: Place Pigalle (sq 19) -->
+            <div class="case" style="grid-row:10;grid-column:1;">
+                <div class="bande bande-droite" style="background:var(--orange)"></div>
+                <div class="case-nom">Place Pigalle</div>
+                <div class="case-prix">200€</div>
+            </div>
+
+            <!-- row 9: Boulevard Saint-Michel (sq 18) -->
+            <div class="case" style="grid-row:9;grid-column:1;">
+                <div class="bande bande-droite" style="background:var(--orange)"></div>
+                <div class="case-nom">Boulevard Saint-Michel</div>
+                <div class="case-prix">180€</div>
+            </div>
+
+            <!-- row 8: Caisse Communauté (sq 17) -->
+            <div class="case" style="grid-row:8;grid-column:1;">
+                <div class="case-icone">📦</div>
+                <div class="case-nom">Caisse Communauté</div>
+            </div>
+
+            <!-- row 7: Avenue Mozart (sq 16) -->
+            <div class="case" style="grid-row:7;grid-column:1;">
+                <div class="bande bande-droite" style="background:var(--orange)"></div>
+                <div class="case-nom">Avenue Mozart</div>
+                <div class="case-prix">180€</div>
+            </div>
+
+            <!-- row 6: Gare de Lyon (sq 15) -->
+            <div class="case" style="grid-row:6;grid-column:1;">
+                <div class="case-icone">🚉</div>
+                <div class="case-nom">Gare de Lyon</div>
+                <div class="case-prix">200€</div>
+            </div>
+
+            <!-- row 5: Rue de Paradis (sq 14) -->
+            <div class="case" style="grid-row:5;grid-column:1;">
+                <div class="bande bande-droite" style="background:var(--pink)"></div>
+                <div class="case-nom">Rue de Paradis</div>
+                <div class="case-prix">160€</div>
+            </div>
+
+            <!-- row 4: Avenue de Neuilly (sq 13) -->
+            <div class="case" style="grid-row:4;grid-column:1;">
+                <div class="bande bande-droite" style="background:var(--pink)"></div>
+                <div class="case-nom">Avenue de Neuilly</div>
+                <div class="case-prix">140€</div>
+            </div>
+
+            <!-- row 3: Compagnie d'Électricité (sq 12) -->
+            <div class="case" style="grid-row:3;grid-column:1;">
+                <div class="case-icone">⚡</div>
+                <div class="case-nom">Compagnie d'Électricité</div>
+                <div class="case-prix">150€</div>
+            </div>
+
+            <!-- row 2: Boulevard de la Villette (sq 11) -->
+            <div class="case" style="grid-row:2;grid-column:1;">
+                <div class="bande bande-droite" style="background:var(--pink)"></div>
+                <div class="case-nom">Boulevard de la Villette</div>
+                <div class="case-prix">140€</div>
+            </div>
+
+
+            <!-- row 2: Avenue de Breteuil (sq 31) -->
+            <div class="case" style="grid-row:2;grid-column:11;">
+                <div class="bande bande-gauche" style="background:var(--green)"></div>
+                <div class="case-nom">Avenue de Breteuil</div>
+                <div class="case-prix">300€</div>
+            </div>
+
+            <!-- row 3: Avenue Foch (sq 32) -->
+            <div class="case" style="grid-row:3;grid-column:11;">
+                <div class="bande bande-gauche" style="background:var(--green)"></div>
+                <div class="case-nom">Avenue Foch</div>
+                <div class="case-prix">300€</div>
+            </div>
+
+            <!-- : Caisse Communauté  -->
+            <div class="case" style="grid-row:4;grid-column:11;">
+                <div class="case-icone">📦</div>
+                <div class="case-nom">Caisse Communauté</div>
+            </div>
+
+            <!-- Boulevard des Capucines  -->
+            <div class="case" style="grid-row:5;grid-column:11;">
+                <div class="bande bande-gauche" style="background:var(--green)"></div>
+                <div class="case-nom">Boulevard des Capucines</div>
+                <div class="case-prix">320€</div>
+            </div>
+
+            <!-- : Gare Saint-Lazare  -->
+            <div class="case" style="grid-row:6;grid-column:11;">
+                <div class="case-icone">🚉</div>
+                <div class="case-nom">Gare Saint-Lazare</div>
+                <div class="case-prix">200€</div>
+            </div>
+
+            <!-- : Chance  -->
+            <div class="case" style="grid-row:7;grid-column:11;">
+                <div class="case-icone">🃏</div>
+                <div class="case-nom">Chance</div>
+            </div>
+
+            <!-- : Avenue des Champs-Élysées  -->
+            <div class="case" style="grid-row:8;grid-column:11;">
+                <div class="bande bande-gauche" style="background:var(--darkblue)"></div>
+                <div class="case-nom">Avenue des Champs-Élysées</div>
+                <div class="case-prix">350€</div>
+            </div>
+
+            <!-- : Taxe de Luxe  -->
+            <div class="case" style="grid-row:9;grid-column:11;">
+                <div class="case-icone">💎</div>
+                <div class="case-nom">Taxe de Luxe</div>
+                <div class="case-prix">100€</div>
+            </div>
+
+            <!-- :Rue de la Paix  -->
+            <div class="case" style="grid-row:10;grid-column:11;">
+                <div class="bande bande-gauche" style="background:var(--darkblue)"></div>
+                <div class="case-nom">Rue de la Paix</div>
+                <div class="case-prix">400€</div>
+            </div>
+
+        </div>
+    </section>
+    <div class="stock-app-default">
+        <h1>STOCK MANAGEMENT</h1>
+        <h3>OWNER : <span>TAHIANA</span></h3>
+        <hr>
+        <div class="stock-summary">
+            <div class="stock-money">
+                <h3>Resources :</h3>
+                <h3>$1000</h3>
+            </div>
+            <div class="stock-expenses">
+                <h3>Expenses :</h3>
+                <h3>- $200</h3>
+            </div>
+        </div>
+        <div class="stock-information">
+            <h3>Player expenses information</h3>
+            <div class="bought-item">
+                <p>HOUSE</p>
+                <div class="price">
+                    <p>$200</p>
+                </div>
+            </div>
+        </div>
+        <div class="exit-stock">
+            <i class="fa-solid fa-x"></i>
+        </div>
+    </div>         
+    <div class="roll-dice-default">
+        <button class="roll-button">Roll dice <i class="fa-solid fa-dice fa-xl"></i></button>
+        <h3>OUTPUT 1 : <span class="dice-number"></span><span class="dice-face"><i id="dice-icon"class=""></i></span></h3>
+        <h3>OUTPUT 2 : <span class="dice-number2"></span><span class="dice-face"><i id="dice-icon2"class=""></i></span></h3>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

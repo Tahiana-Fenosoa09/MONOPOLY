@@ -1,0 +1,398 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header{
+    height:10vh;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    padding:1vh;
+}
+
+header img{
+    height:100%;
+    width:5vw;
+}
+
+.monopoly-logo-hide{
+    display: none !important;
+}
+
+.monopoly-logo{
+    display:flex;
+    gap:2vw;
+    align-items: center;
+    padding:1vh;
+    background:white;
+    border-radius:10px;
+    margin-right:2vw;
+    position: absolute;
+    top:2%;
+    right:38%;
+}
+
+.begining-section-remove{
+    display:none !important;
+}
+
+.begining-section{
+    height:90vh;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.begining-card{
+    margin-top:10vh;
+    width:25%;
+    height:30%;
+    padding:2vh;
+    display:flex;
+    flex-direction: column;
+    gap:2vh;
+    text-align: center;
+    border-radius:10px;
+    box-shadow:0 0 10px 1px grey;
+    background: white;
+}
+
+.begining-card-hide{
+    display:none !important;
+}   
+
+.begining-card select{
+    font-size:2.5vh;
+    padding:1vh;
+    border-radius: 5px;
+    font-weight:800;
+    appearance: none;
+    color:#1a6b2f;
+    border:1px solid #1a6b2f;
+    width:90%;
+    border-radius: 10px 0 0 10px;
+}
+
+.select-part{
+    display:flex;
+}
+
+.select-icon{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: #1a6b2f;
+    border-radius:0 10px 10px 0 ;
+    width:10%;
+}
+
+.select-icon i{
+    color:white;
+}
+
+
+.begining-card button{
+    background: #1a6b2f;
+    padding:1vh;
+    border:none;
+    border-radius:5px;
+    color:white;
+    font-weight:800;
+    font-size:2.5vh;
+}
+
+.player-info-defaulthide{
+    display:none;
+}
+
+.player-info{
+    margin-top:10vh;
+    width:25%;
+    height:auto;
+    max-height:50%;
+    padding:2vh;
+    display:flex;
+    flex-direction: column;
+    gap:2vh;
+    text-align: center;
+    border-radius:10px;
+    box-shadow:0 0 10px 1px grey;
+    background: white;
+}
+
+.player-inputs{
+    display:flex;
+    flex-direction: column;
+    gap:1vh;
+}
+
+.player-info button{
+    background: #1a6b2f;
+    padding:1vh;
+    border:none;
+    border-radius:5px;
+    color:white;
+    font-weight:800;
+    font-size:2.5vh;
+}
+
+.player-info button a{
+    color:white;
+    text-decoration: none;
+}
+
+.player-info input{
+    padding:1vh;
+    font-weight:700;
+    font-size:2vh;
+    border-radius:10px;
+    width:100%;
+    border:1px solid #1a6b2f;
+}
+
+.input-container{
+    display:flex;
+    gap:2vw;
+}
+
+.input-container label{
+    font-weight:800
+}
+
+.load-animation-default{
+    display:none;
+}
+
+.load-animation{
+    margin-top:10vh;
+    display:flex !important;
+    align-items: center;
+    flex-direction: column;
+    color:white;
+}
+
+.img-container{
+    width:19vw;
+    height:10vw
+}
+
+
+.img-container img{
+    width:100%;
+    height:100%;
+    animation:turnAround 1s infinite;
+}
+
+@keyframes turnAround{
+    0%{
+        transform: rotate(0);
+    }
+    25%{
+        transform: rotate(90deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.game-section{
+    display:none;
+}
+
+.game-section-show{
+    display:block !important;
+}
+
+.stock-app-default{
+    display:none;
+}
+
+.stock-app{
+    position:absolute;
+    top:20%;
+    right:26%;
+    z-index: 2;
+    max-height:70vh;
+    height:auto;
+    width:50%;
+    padding:3vh;
+    display: flex !important;
+    flex-direction: column;
+    gap:2vh;
+    background:white;
+    border-radius: 10px;
+    /* position: relative; */
+}
+
+.stock-summary{
+    display:flex;
+    gap:2vw;
+}
+
+.stock-money,.stock-expenses{
+    width:50%;
+    height:10vh;
+    padding:1vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background:black;
+    color:white
+}
+
+.stock-information{
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding:1vh;
+}
+
+.bought-item{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1vh;
+    border:1px solid black;
+    background:#1a6b2f;
+    color:white;
+    font-weight: 600;
+}
+
+.exit-stock{
+    width:2vw;
+    height:2vw;
+    border-radius:50%;
+    background:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:1vh;
+    position: absolute;
+    top:5%;
+    right:5%;
+}
+
+.exit-stock i{
+    color:white
+}
+
+.roll-dice-default{
+    display: none;
+}
+
+.roll-dice{
+    height:20vh;
+    width:20%;
+    border-radius: 10px;
+    background: white;
+    padding:2vh;
+    display:flex !important;
+    flex-direction: column;
+    gap:2vh;
+    position:absolute;
+    right:5%;
+    bottom:50%;
+}
+
+.roll-dice button{
+    padding:1vh;
+    background:black;
+    color:white;
+    font-weight: 600;
+    font-size: 2vh;
+    border: none;
+    border-radius:10px;
+}
+
+.roll-dice button i{
+    color:white;
+}
+
+.roll-dice h3{
+    display:flex;
+    gap:2vw;
+
+}
+
+.all-players-default{
+    display:none;
+}
+
+.all-players{
+    width:20%;
+    height:auto;
+    max-height:50vh;
+    border-radius: 10px;
+    padding:2vh;
+    display:flex !important;
+    flex-direction: column;
+    gap:2vh;
+    background: white;
+    position:absolute;
+    top:2%;
+    left:2%;
+}
+
+.stock-gestion-default{
+    display:none;
+}
+
+.stock-gestion{
+    display:block !important;
+    position:absolute;
+    top:2%;
+    right:2%;
+}
+
+.stock-gestion button{
+    border: none;
+    padding:2vh;
+    border-radius: 10px;
+    background: white;
+    font-weight: 700;
+    font-size: 2vh;
+}
+
+.style{
+    width:30vh;
+    height:30vh;
+    position: absolute;
+}
+
+.style img{
+    width:100%;
+    height:100%;
+}
+
+.style1{
+    bottom:10%;
+    left:10%;
+    transform: rotate(30deg);
+}
+
+.style2{
+    top:2%;
+    right:15%;
+    transform: rotate(-30deg);
+}
+
+.style3{
+    right:10%;
+    bottom:10%;
+}
+
+.style4{
+    left:10%;
+    top:20%;
+    transform: rotate(-30deg);
+}
