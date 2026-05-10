@@ -25,6 +25,10 @@ export class Game {
     }
 
     get events() {
+        return this._events;
+    }
+
+    flushEvents() {
         const copy = [...this._events];
         this._events = [];
         return copy;
@@ -42,53 +46,73 @@ export class Game {
         return d1 === d2;
     }
 
-    playTurn(doubleCount = 0) {
+    playTurn(d1 = null, d2 = null) {
         const player = this.currentPlayer;
-        const [d1, d2] = this.rollDices();
-        this.lastDicesResult = d1 + d2;
+        const rolls = [];
+        let doubleCount = 0;
+        this.movementPath = [];
 
-        if (doubleCount === 3) {
-            this.goToJail(player);
-            this.nextPlayer();
-            return;
-        }
+        let roll1 = d1 ?? this.d1.roll();
+        let roll2 = d2 ?? this.d2.roll();
 
-        if (player.inJail) {
-            if (this.isDouble(d1, d2)) {
-                player.inJail = false;
-                player.turnsInJail = 0;
-            } else {
-                player.turnsInJail++;
-                if (player.turnsInJail >= 3) {
-                    this.bank.receive(player, 50); 
+        while (true) {
+            this.lastDicesResult = roll1 + roll2;
+            rolls.push([roll1, roll2]);
+
+            if (this.isDouble(roll1, roll2)) {
+                doubleCount++;
+                if (doubleCount === 3) {
+                    this.goToJail(player);
+                    this.nextPlayer();
+                    return { rolls, movementPath: this.movementPath };
+                }
+            }
+
+            if (player.inJail) {
+                if (this.isDouble(roll1, roll2)) {
                     player.inJail = false;
                     player.turnsInJail = 0;
                 } else {
-                    this.nextPlayer();
-                    return;
+                    player.turnsInJail++;
+                    if (player.turnsInJail >= 3) {
+                        this.bank.receive(player, 50);
+                        player.inJail = false;
+                        player.turnsInJail = 0;
+                    } else {
+                        this.nextPlayer();
+                        return { rolls, movementPath: this.movementPath };
+                    }
                 }
             }
-        }
 
-        const oldPosition = player.position;
-        player.move(this.lastDicesResult);
+            const oldPosition = player.position;
+            const distanceToMove = this.lastDicesResult;
+            for (let i = 1; i <= distanceToMove; i++) {
+                this.movementPath.push((oldPosition + i) % 40);
+            }
+            
+            player.move(this.lastDicesResult);
 
-        if (oldPosition + this.lastDicesResult >= 40) {
-            this.bank.pay(player, 200); 
-            this._events.push(`${player.name} passe par Go et reçoit 200€`);
-        }
+            if (oldPosition + this.lastDicesResult >= 40) {
+                this.bank.pay(player, 200);
+                this._events.push(`${player.name} passe par Go et reçoit 200€`);
+            }
 
-        this.handleSquare(player);
+            this.handleSquare(player);
 
-        if (player.isBankrupt) {
+            if (player.isBankrupt) {
+                this.nextPlayer();
+                return { rolls };
+            }
+
+            if (this.isDouble(roll1, roll2) && !player.inJail) {
+                roll1 = this.d1.roll();
+                roll2 = this.d2.roll();
+                continue;
+            }
+
             this.nextPlayer();
-            return;
-        }
-
-        if (this.isDouble(d1, d2)) {
-            this.playTurn(doubleCount + 1);
-        } else {
-            this.nextPlayer();
+            return { rolls, movementPath: this.movementPath };
         }
     }
 
@@ -191,7 +215,12 @@ export class Game {
 
         if (!card) return;
 
-        this._events.push(`${player.name} tire une carte ${type} : ${card.text}`);
+        this._events.push({
+            type: "cardEvent",
+            cardType: type,
+            card: card,
+            player: player
+        });
 
         switch (card.action) {
             case "moveTo":

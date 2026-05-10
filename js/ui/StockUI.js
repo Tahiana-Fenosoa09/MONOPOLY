@@ -41,38 +41,50 @@ export class StockUI {
         const expEl = panel.querySelector(".stock-expenses h3:last-child");
         if (expEl) expEl.textContent = `£${totalProp}`;
 
-        // Properties list
-        const infoEl = panel.querySelector(".stock-information");
-        if (infoEl) {
-            infoEl.innerHTML = `<h3>Properties owned</h3>`;
-            if (player.properties.length === 0) {
-                infoEl.innerHTML += `<p style="padding:1vh;color:#888;">No properties yet.</p>`;
-            } else {
-                player.properties.forEach(p => {
-                    const buildings = p.hasHotel
-                        ? "🏨 Hotel"
-                        : (p.house > 0 ? `🏠×${p.house}` : "—");
-                    infoEl.innerHTML += `
-                      <div class="bought-item">
-                        <p>${p.name}</p>
-                        <div class="price">
-                          <p>£${p.price}</p>
-                          <p style="font-size:0.8em;">${buildings}</p>
-                        </div>
-                      </div>`;
-                });
-            }
-        }
+        // Remove previous dynamic content (info + log) before re-rendering
+        panel.querySelectorAll(".stock-information, .stock-log").forEach(el => el.remove());
 
-        // Transaction log
-        if (player._log && player._log.length > 0) {
-            const logEl = document.createElement("div");
-            logEl.className = "stock-log";
-            logEl.innerHTML = `<h3>Recent activity</h3>`;
-            [...player._log].reverse().slice(0, 8).forEach(entry => {
+        // Scrollable properties list
+        const infoEl = document.createElement("div");
+        infoEl.className = "stock-information";
+        infoEl.innerHTML = `<h3>Properties owned</h3>`;
+        if (player.properties.length === 0) {
+            infoEl.innerHTML += `<p style="padding:1vh;color:#888;">No properties yet.</p>`;
+        } else {
+            player.properties.forEach(p => {
+                const buildings = p.hasHotel
+                    ? "🏨 Hotel"
+                    : (p.house > 0 ? `🏠×${p.house}` : "—");
+                infoEl.innerHTML += `
+                  <div class="bought-item">
+                    <p>${p.name}</p>
+                    <div class="price">
+                      <p>£${p.price}</p>
+                      <p style="font-size:0.8em;">${buildings}</p>
+                    </div>
+                  </div>`;
+            });
+        }
+        panel.appendChild(infoEl);
+
+        // Transaction log (always shown)
+        const logEl = document.createElement("div");
+        logEl.className = "stock-log";
+        logEl.innerHTML = `<h3>Recent activity</h3>`;
+        if (!player._log || player._log.length === 0) {
+            logEl.innerHTML += `<p class="log-entry" style="color:#888;">No activity yet.</p>`;
+        } else {
+            [...player._log].reverse().slice(0, 15).forEach(entry => {
                 logEl.innerHTML += `<p class="log-entry">${entry}</p>`;
             });
-            infoEl.after(logEl);
+        }
+        panel.appendChild(logEl);
+    }
+
+    /** Refresh the panel if already open (call after each turn). */
+    refresh() {
+        if (this._currentPlayer && this._panel.classList.contains("stock-app")) {
+            this.show(this._currentPlayer);
         }
     }
 

@@ -11,21 +11,15 @@ export class BoardUI {
         this.players = [];
     }
 
-    // ── Public API ───────────────────────────────────────────
-
-    /** Build the entire board from data, replacing any hardcoded squares. */
     buildBoard(squaresData, players) {
         this.squaresData = squaresData;
         this.players = players;
-
-        // Remove hardcoded .case elements (keep #center)
         this.gameCard.querySelectorAll(".case").forEach(el => el.remove());
 
         squaresData.forEach(sq => this._createSquareEl(sq));
         this.updatePawns();
     }
 
-    /** Re-render all pawns at their current positions. */
     updatePawns() {
         this.gameCard.querySelectorAll(".pions-case, #pions-container").forEach(el => {
             el.innerHTML = "";
@@ -47,7 +41,6 @@ export class BoardUI {
         });
     }
 
-    /** Flash a square when a player lands on it. */
     highlightSquare(index) {
         const el = this.gameCard.querySelector(`[data-index="${index}"]`);
         if (!el) return;
@@ -55,7 +48,6 @@ export class BoardUI {
         setTimeout(() => el.classList.remove("square-highlight"), 900);
     }
 
-    /** Add or update the ownership dot on a square. */
     markOwned(squareIndex, playerColor) {
         const el = this.gameCard.querySelector(`[data-index="${squareIndex}"]`);
         if (!el) return;
@@ -143,18 +135,21 @@ export class BoardUI {
                 return `
                   <div class="coin coin-prison" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
                     <div class="coin-libelle">🔒 Jail /<br>Just Visiting</div>
+                    <div class="pions-case" id="pions-${sq.index}"></div>
                   </div>`;
 
             case "gotojail":
                 return `
                   <div class="coin coin-aller-prison" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
                     <div class="coin-libelle">🚔 Go to<br>Jail</div>
+                    <div class="pions-case" id="pions-${sq.index}"></div>
                   </div>`;
 
             case "freeparking":
                 return `
                   <div class="coin coin-parc" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
                     <div class="coin-libelle">🌳 Free<br>Parking</div>
+                    <div class="pions-case" id="pions-${sq.index}"></div>
                   </div>`;
 
             case "property": {

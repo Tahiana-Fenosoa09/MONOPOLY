@@ -217,11 +217,11 @@ header img{
 
 .stock-app{
     position:absolute;
-    top:20%;
+    top:10%;
     right:26%;
     z-index: 2;
-    max-height:70vh;
-    height:auto;
+    height:80vh;
+    max-height:80vh;
     width:50%;
     padding:3vh;
     display: flex !important;
@@ -229,12 +229,13 @@ header img{
     gap:2vh;
     background:white;
     border-radius: 10px;
-    /* position: relative; */
+    overflow: hidden;
 }
 
 .stock-summary{
     display:flex;
     gap:2vw;
+    flex-shrink: 0;
 }
 
 .stock-money,.stock-expenses{
@@ -250,11 +251,32 @@ header img{
 }
 
 .stock-information{
-    height:100%;
+    flex: 1 1 auto;
+    min-height: 0;
     display:flex;
     flex-direction: column;
     border-radius: 10px;
     padding:1vh;
+    overflow-y: auto;
+    gap: 4px;
+}
+
+.stock-log{
+    flex: 0 0 auto;
+    max-height: 28%;
+    min-height: 80px;
+    overflow-y: auto;
+    border-radius: 10px;
+    padding: 1vh;
+    background: #f8f8f8;
+    border: 1px solid #eee;
+}
+
+.log-entry{
+    font-size: 11px;
+    padding: 3px 0;
+    border-bottom: 1px solid #eee;
+    color: #444;
 }
 
 .bought-item{

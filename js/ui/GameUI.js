@@ -200,26 +200,22 @@ export class GameUI {
         if (!this.game || this.game.gameOver) return;
         this.diceUI.setEnabled(false);
 
-        // Capture dice before playTurn (playTurn re-rolls internally)
-        // We intercept by patching rollDices temporarily
+        // Lancer les dés du premier roll
         const d1Raw = this.game.d1.roll();
         const d2Raw = this.game.d2.roll();
         this.diceUI.showResult(d1Raw, d2Raw);
 
-        // Now play the full turn using the game logic
-        // We need to use the stored roll, so we patch briefly
-        const origRoll = this.game.rollDices.bind(this.game);
-        let used = false;
-        this.game.rollDices = () => {
-            if (!used) { used = true; return [d1Raw, d2Raw]; }
-            return origRoll();
-        };
+        // Jouer le tour en passant le premier lancer ; Game.js gère les doubles en interne
+        const { rolls } = this.game.playTurn(d1Raw, d2Raw);
 
-        this.game.playTurn();
-        this.game.rollDices = origRoll;
+        // Si il y a eu des relances (doubles), afficher le dernier lancer dans les dés
+        if (rolls.length > 1) {
+            const [lastD1, lastD2] = rolls[rolls.length - 1];
+            this.diceUI.showResult(lastD1, lastD2);
+        }
 
-        // Process events
-        const events = this.game.events;
+        // Vider et traiter tous les events accumulés
+        const events = this.game.flushEvents();
         events.forEach(ev => this._handleEvent(ev));
 
         // Update board pawns
@@ -250,6 +246,7 @@ export class GameUI {
         }
 
         this._highlightCurrentPlayer();
+        this.stockUI.refresh();
         this.diceUI.setEnabled(true);
     }
 
@@ -259,13 +256,18 @@ export class GameUI {
             this._showBuyModal(ev.player, ev.square);
             return;
         }
+        // Card event (object)
+        if (ev && typeof ev === "object" && ev.type === "cardEvent") {
+            this._showCardEventModal(ev.player, ev.card, ev.cardType);
+            return;
+        }
         // Log string events
         if (typeof ev === "string") {
             this._logEvent(ev);
-            // Also push to player's _log if we can figure out which player
+            // Push to every player mentioned in the event
             this.game.players.forEach(p => {
-                if (ev.includes(p.name)) {
-                    if (p._log) p._log.push(ev);
+                if (p._log && ev.includes(p.name)) {
+                    p._log.push(ev);
                 }
             });
         }
@@ -360,6 +362,51 @@ export class GameUI {
         document.getElementById("buy-no").addEventListener("click", () => {
             this._logEvent(`${player.name} skipped buying ${square.name}`);
             close();
+            this.diceUI.setEnabled(true);
+            this._highlightCurrentPlayer();
+        });
+    }
+
+    _showCardEventModal(player, card, cardType) {
+        const modal = document.createElement("div");
+        modal.id = "card-event-modal";
+        modal.style.cssText = `
+          display:flex; position:fixed; inset:0;
+          background:rgba(0,0,0,0.55); z-index:100;
+          align-items:center; justify-content:center;`;
+
+        const cardColor = cardType === "chance" ? "#ff6b6b" : "#4a90e2";
+        const cardTitle = cardType === "chance" ? "🎲 CHANCE" : "🎁 COMMUNITY CHEST";
+
+        modal.innerHTML = `
+          <div style="background:#fff; border-radius:16px; padding:40px 48px;
+                      box-shadow:0 8px 40px rgba(0,0,0,0.4); text-align:center; 
+                      min-width:380px; max-width:500px;">
+            <div style="background:${cardColor}; color:#fff; padding:16px; border-radius:12px;
+                        margin-bottom:24px; font-weight:700; font-size:18px; letter-spacing:2px;">
+              ${cardTitle}
+            </div>
+            <h3 style="color:#1a6b2f; margin-bottom:8px; font-size:16px;">
+              ${player.name} drew a card:
+            </h3>
+            <p style="color:#333; font-size:18px; font-weight:700; margin-bottom:24px;
+                      line-height:1.6; min-height:60px;">
+              ${card.text}
+            </p>
+            <button id="card-ok-btn" style="
+              background:#1a6b2f;color:#fff;border:none;padding:12px 36px;
+              border-radius:8px;font-weight:700;font-size:16px;cursor:pointer;">
+              OK
+            </button>
+          </div>`;
+
+        document.body.appendChild(modal);
+        this.diceUI.setEnabled(false);
+
+        const btnOk = document.getElementById("card-ok-btn");
+        btnOk.addEventListener("click", () => {
+            modal.remove();
+            this._logEvent(`${player.name} drew ${cardType} card: ${card.text}`);
             this.diceUI.setEnabled(true);
             this._highlightCurrentPlayer();
         });

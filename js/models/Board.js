@@ -1,4 +1,4 @@
-import { Square } from "./Square,js";
+import { Square } from "./Square.js";
 
 export class Board {
     constructor(datas) {
