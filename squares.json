@@ -1,0 +1,464 @@
+[
+  {
+    "index": 0,
+    "name": "Go",
+    "type": "start"
+  },
+  {
+    "index": 1,
+    "name": "Old Kent Road",
+    "type": "property",
+    "group": "brown",
+    "price": 60,
+    "housePrice": 50,
+    "rent": {
+      "base": 2,
+      "house1": 10,
+      "house2": 30,
+      "house3": 90,
+      "house4": 160,
+      "hotel": 250
+    }
+  },
+  {
+    "index": 2,
+    "name": "Community Chest",
+    "type": "community"
+  },
+  {
+    "index": 3,
+    "name": "Whitechapel Road",
+    "type": "property",
+    "group": "brown",
+    "price": 60,
+    "housePrice": 50,
+    "rent": {
+      "base": 4,
+      "house1": 20,
+      "house2": 60,
+      "house3": 180,
+      "house4": 320,
+      "hotel": 450
+    }
+  },
+  {
+    "index": 4,
+    "name": "Income Tax",
+    "type": "tax",
+    "amount": 200
+  },
+  {
+    "index": 5,
+    "name": "Kings Cross Station",
+    "type": "station",
+    "group": "station",
+    "price": 200,
+    "rent": [25, 50, 100, 200]
+  },
+  {
+    "index": 6,
+    "name": "The Angel Islington",
+    "type": "property",
+    "group": "lightblue",
+    "price": 100,
+    "housePrice": 50,
+    "rent": {
+      "base": 6,
+      "house1": 30,
+      "house2": 90,
+      "house3": 270,
+      "house4": 400,
+      "hotel": 550
+    }
+  },
+  {
+    "index": 7,
+    "name": "Chance",
+    "type": "chance"
+  },
+  {
+    "index": 8,
+    "name": "Euston Road",
+    "type": "property",
+    "group": "lightblue",
+    "price": 100,
+    "housePrice": 50,
+    "rent": {
+      "base": 6,
+      "house1": 30,
+      "house2": 90,
+      "house3": 270,
+      "house4": 400,
+      "hotel": 550
+    }
+  },
+  {
+    "index": 9,
+    "name": "Pentonville Road",
+    "type": "property",
+    "group": "lightblue",
+    "price": 120,
+    "housePrice": 50,
+    "rent": {
+      "base": 8,
+      "house1": 40,
+      "house2": 100,
+      "house3": 300,
+      "house4": 450,
+      "hotel": 600
+    }
+  },
+  {
+    "index": 10,
+    "name": "Jail / Just Visiting",
+    "type": "jail"
+  },
+  {
+    "index": 11,
+    "name": "Pall Mall",
+    "type": "property",
+    "group": "pink",
+    "price": 140,
+    "housePrice": 100,
+    "rent": {
+      "base": 10,
+      "house1": 50,
+      "house2": 150,
+      "house3": 450,
+      "house4": 625,
+      "hotel": 750
+    }
+  },
+  {
+    "index": 12,
+    "name": "Electric Company",
+    "type": "utility",
+    "group": "utility",
+    "price": 150,
+    "multipliers": [4, 10]
+  },
+  {
+    "index": 13,
+    "name": "Whitehall",
+    "type": "property",
+    "group": "pink",
+    "price": 140,
+    "housePrice": 100,
+    "rent": {
+      "base": 10,
+      "house1": 50,
+      "house2": 150,
+      "house3": 450,
+      "house4": 625,
+      "hotel": 750
+    }
+  },
+  {
+    "index": 14,
+    "name": "Northumberland Avenue",
+    "type": "property",
+    "group": "pink",
+    "price": 160,
+    "housePrice": 100,
+    "rent": {
+      "base": 12,
+      "house1": 60,
+      "house2": 180,
+      "house3": 500,
+      "house4": 700,
+      "hotel": 900
+    }
+  },
+  {
+    "index": 15,
+    "name": "Marylebone Station",
+    "type": "station",
+    "group": "station",
+    "price": 200,
+    "rent": [25, 50, 100, 200]
+  },
+  {
+    "index": 16,
+    "name": "Bow Street",
+    "type": "property",
+    "group": "orange",
+    "price": 180,
+    "housePrice": 100,
+    "rent": {
+      "base": 14,
+      "house1": 70,
+      "house2": 200,
+      "house3": 550,
+      "house4": 750,
+      "hotel": 950
+    }
+  },
+  {
+    "index": 17,
+    "name": "Community Chest",
+    "type": "community"
+  },
+  {
+    "index": 18,
+    "name": "Marlborough Street",
+    "type": "property",
+    "group": "orange",
+    "price": 180,
+    "housePrice": 100,
+    "rent": {
+      "base": 14,
+      "house1": 70,
+      "house2": 200,
+      "house3": 550,
+      "house4": 750,
+      "hotel": 950
+    }
+  },
+  {
+    "index": 19,
+    "name": "Vine Street",
+    "type": "property",
+    "group": "orange",
+    "price": 200,
+    "housePrice": 100,
+    "rent": {
+      "base": 16,
+      "house1": 80,
+      "house2": 220,
+      "house3": 600,
+      "house4": 800,
+      "hotel": 1000
+    }
+  },
+  {
+    "index": 20,
+    "name": "Free Parking",
+    "type": "freeparking"
+  },
+  {
+    "index": 21,
+    "name": "Strand",
+    "type": "property",
+    "group": "red",
+    "price": 220,
+    "housePrice": 150,
+    "rent": {
+      "base": 18,
+      "house1": 90,
+      "house2": 250,
+      "house3": 700,
+      "house4": 875,
+      "hotel": 1050
+    }
+  },
+  {
+    "index": 22,
+    "name": "Chance",
+    "type": "chance"
+  },
+  {
+    "index": 23,
+    "name": "Fleet Street",
+    "type": "property",
+    "group": "red",
+    "price": 220,
+    "housePrice": 150,
+    "rent": {
+      "base": 18,
+      "house1": 90,
+      "house2": 250,
+      "house3": 700,
+      "house4": 875,
+      "hotel": 1050
+    }
+  },
+  {
+    "index": 24,
+    "name": "Trafalgar Square",
+    "type": "property",
+    "group": "red",
+    "price": 240,
+    "housePrice": 150,
+    "rent": {
+      "base": 20,
+      "house1": 100,
+      "house2": 300,
+      "house3": 750,
+      "house4": 925,
+      "hotel": 1100
+    }
+  },
+  {
+    "index": 25,
+    "name": "Fenchurch Street Station",
+    "type": "station",
+    "group": "station",
+    "price": 200,
+    "rent": [25, 50, 100, 200]
+  },
+  {
+    "index": 26,
+    "name": "Leicester Square",
+    "type": "property",
+    "group": "yellow",
+    "price": 260,
+    "housePrice": 150,
+    "rent": {
+      "base": 22,
+      "house1": 110,
+      "house2": 330,
+      "house3": 800,
+      "house4": 975,
+      "hotel": 1150
+    }
+  },
+  {
+    "index": 27,
+    "name": "Coventry Street",
+    "type": "property",
+    "group": "yellow",
+    "price": 260,
+    "housePrice": 150,
+    "rent": {
+      "base": 22,
+      "house1": 110,
+      "house2": 330,
+      "house3": 800,
+      "house4": 975,
+      "hotel": 1150
+    }
+  },
+  {
+    "index": 28,
+    "name": "Water Works",
+    "type": "utility",
+    "group": "utility",
+    "price": 150,
+    "multipliers": [4, 10]
+  },
+  {
+    "index": 29,
+    "name": "Piccadilly",
+    "type": "property",
+    "group": "yellow",
+    "price": 280,
+    "housePrice": 150,
+    "rent": {
+      "base": 24,
+      "house1": 120,
+      "house2": 360,
+      "house3": 850,
+      "house4": 1025,
+      "hotel": 1200
+    }
+  },
+  {
+    "index": 30,
+    "name": "Go to Jail",
+    "type": "gotojail"
+  },
+  {
+    "index": 31,
+    "name": "Regent Street",
+    "type": "property",
+    "group": "green",
+    "price": 300,
+    "housePrice": 200,
+    "rent": {
+      "base": 26,
+      "house1": 130,
+      "house2": 390,
+      "house3": 900,
+      "house4": 1100,
+      "hotel": 1275
+    }
+  },
+  {
+    "index": 32,
+    "name": "Oxford Street",
+    "type": "property",
+    "group": "green",
+    "price": 300,
+    "housePrice": 200,
+    "rent": {
+      "base": 26,
+      "house1": 130,
+      "house2": 390,
+      "house3": 900,
+      "house4": 1100,
+      "hotel": 1275
+    }
+  },
+  {
+    "index": 33,
+    "name": "Community Chest",
+    "type": "community"
+  },
+  {
+    "index": 34,
+    "name": "Bond Street",
+    "type": "property",
+    "group": "green",
+    "price": 320,
+    "housePrice": 200,
+    "rent": {
+      "base": 28,
+      "house1": 150,
+      "house2": 450,
+      "house3": 1000,
+      "house4": 1200,
+      "hotel": 1400
+    }
+  },
+  {
+    "index": 35,
+    "name": "Liverpool Street Station",
+    "type": "station",
+    "group": "station",
+    "price": 200,
+    "rent": [25, 50, 100, 200]
+  },
+  {
+    "index": 36,
+    "name": "Chance",
+    "type": "chance"
+  },
+  {
+    "index": 37,
+    "name": "Park Lane",
+    "type": "property",
+    "group": "darkblue",
+    "price": 350,
+    "housePrice": 200,
+    "rent": {
+      "base": 35,
+      "house1": 175,
+      "house2": 500,
+      "house3": 1100,
+      "house4": 1300,
+      "hotel": 1500
+    }
+  },
+  {
+    "index": 38,
+    "name": "Super Tax",
+    "type": "tax",
+    "amount": 100
+  },
+  {
+    "index": 39,
+    "name": "Mayfair",
+    "type": "property",
+    "group": "darkblue",
+    "price": 400,
+    "housePrice": 200,
+    "rent": {
+      "base": 50,
+      "house1": 200,
+      "house2": 600,
+      "house3": 1400,
+      "house4": 1700,
+      "hotel": 2000
+    }
+  }
+]
