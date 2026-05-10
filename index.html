@@ -8,21 +8,17 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style (2).css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+       
+    </style>
 </head>
 
 <body>
-    <div class="style style1">
-        <img src="img/cash.png" alt="">
-    </div>
-    <div class="style style2">
-        <img src="img/light.png" alt="">
-    </div>
-    <div class="style style3">
-        <img src="img/jail.png" alt="">
-    </div>
-    <div class="style style4">
-        <img src="img/treasure.png" alt="">
-    </div>
+    <div class="style style1"><img src="img/cash.png" alt=""></div>
+    <div class="style style2"><img src="img/light.png" alt=""></div>
+    <div class="style style3"><img src="img/jail.png" alt=""></div>
+    <div class="style style4"><img src="img/treasure.png" alt=""></div>
+
     <header>
         <div class="all-players-default">
             <h1>Active Players</h1>
@@ -38,15 +34,16 @@
         </div>
     </header>
 
+    <!-- ══ Setup section ══ -->
     <section class="begining-section">
         <div class="begining-card">
             <h1>Create a new game</h1>
             <div class="select-part">
-                <select name="" id="selectOption">
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                <select id="selectOption">
+                    <option value="2">2 players</option>
+                    <option value="3">3 players</option>
+                    <option value="4">4 players</option>
+                    <option value="5">5 players</option>
                 </select>
                 <div class="select-icon">
                     <i class="fa-solid fa-circle-down fa-xl"></i>
@@ -54,438 +51,64 @@
             </div>
             <button id="begining-button">Next</button>
         </div>
+
         <form class="player-info-defaulthide">
-            <h1>Enter player pseudo</h1>
+            <h1>Enter player names</h1>
             <div class="player-inputs"></div>
-            <button id="player-info-button">Save information</button>
+            <button id="player-info-button">Start Game</button>
         </form>
+
         <div class="load-animation-default">
-            <h1>Creating game</h1>
+            <h1>Setting up the board…</h1>
             <div class="img-container">
                 <img src="img/360_F_417419275_y8vQY8TXGRpQGpsgkkqihUaWpmtukRhY-removebg-preview.png" alt="">
             </div>
         </div>
     </section>
 
+    <!-- ══ Game section ══ -->
     <section class="game-section" style="display:none;">
         <div id="game-card">
-
-            <!-- ===== CENTER ===== -->
+            <!-- CENTER — board squares injected dynamically by BoardUI.js -->
             <div id="center">
                 <div id="center-icon">🎩</div>
                 <div id="center-logo">MONOPOLY</div>
             </div>
-
-            <!-- ══════════════════════════════════════════════
-                 RANGÉE BAS (index 0 → 10, grid-row:1)
-                 ══════════════════════════════════════════════ -->
-
-            <!-- index 0 : Départ (corner) -->
-            <div class="case coin coin-depart"
-                 data-index="0" data-type="start"
-                 style="grid-row:1;grid-column:1;">
-                <div class="coin-libelle">🏁 Départ</div>
-                <div class="rangee-pions">
-                    <div class="pion" style="background:#e74c3c;">♟</div>
-                    <div class="pion" style="background:#3498db;">♞</div>
-                    <div class="pion" style="background:#27ae60;">♜</div>
-                    <div class="pion" style="background:#f39c12;">♛</div>
-                </div>
-            </div>
-
-            <!-- index 1 : Boulevard de Belleville -->
-            <div class="case"
-                 data-index="1" data-type="property"
-                 style="grid-row:1;grid-column:2;">
-                <div class="bande bande-bas" style="background:var(--brown)"></div>
-                <div class="case-nom">Boulevard de Belleville</div>
-                <div class="case-prix">60€</div>
-            </div>
-
-            <!-- index 2 : Caisse Communauté -->
-            <div class="case"
-                 data-index="2" data-type="community"
-                 style="grid-row:1;grid-column:3;">
-                <div class="case-icone">📦</div>
-                <div class="case-nom">Caisse Communauté</div>
-            </div>
-
-            <!-- index 3 : Rue Lecourbe -->
-            <div class="case"
-                 data-index="3" data-type="property"
-                 style="grid-row:1;grid-column:4;">
-                <div class="bande bande-bas" style="background:var(--brown)"></div>
-                <div class="case-nom">Rue Lecourbe</div>
-                <div class="case-prix">60€</div>
-            </div>
-
-            <!-- index 4 : Impôts sur le Revenu -->
-            <div class="case"
-                 data-index="4" data-type="tax"
-                 style="grid-row:1;grid-column:5;">
-                <div class="case-icone">💸</div>
-                <div class="case-nom">Impôts sur le Revenu</div>
-                <div class="case-prix">200€</div>
-            </div>
-
-            <!-- index 5 : Gare Montparnasse -->
-            <div class="case"
-                 data-index="5" data-type="station"
-                 style="grid-row:1;grid-column:6;">
-                <div class="case-icone">🚉</div>
-                <div class="case-nom">Gare Montparnasse</div>
-                <div class="case-prix">200€</div>
-            </div>
-
-            <!-- index 6 : Rue de Vaugirard -->
-            <div class="case"
-                 data-index="6" data-type="property"
-                 style="grid-row:1;grid-column:7;">
-                <div class="bande bande-bas" style="background:var(--lightblue)"></div>
-                <div class="case-nom">Rue de Vaugirard</div>
-                <div class="case-prix">100€</div>
-            </div>
-
-            <!-- index 7 : Chance -->
-            <div class="case"
-                 data-index="7" data-type="chance"
-                 style="grid-row:1;grid-column:8;">
-                <div class="case-icone">🃏</div>
-                <div class="case-nom">Chance</div>
-            </div>
-
-            <!-- index 8 : Rue de Courcelles -->
-            <div class="case"
-                 data-index="8" data-type="property"
-                 style="grid-row:1;grid-column:9;">
-                <div class="bande bande-bas" style="background:var(--lightblue)"></div>
-                <div class="case-nom">Rue de Courcelles</div>
-                <div class="case-prix">100€</div>
-            </div>
-
-            <!-- index 9 : Avenue de la République -->
-            <div class="case"
-                 data-index="9" data-type="property"
-                 style="grid-row:1;grid-column:10;">
-                <div class="bande bande-bas" style="background:var(--lightblue)"></div>
-                <div class="case-nom">Avenue de la République</div>
-                <div class="case-prix">120€</div>
-            </div>
-
-            <!-- index 10 : Allez en Prison (corner) -->
-            <div class="case coin coin-aller-prison"
-                 data-index="10" data-type="go-to-jail"
-                 style="grid-row:1;grid-column:11;">
-                <div class="coin-libelle">🚔 Allez en<br>Prison</div>
-            </div>
-
-            <!-- ══════════════════════════════════════════════
-                 COLONNE DROITE (index 11 → 19, grid-column:11)
-                 ══════════════════════════════════════════════ -->
-
-            <!-- index 11 : Boulevard de la Villette -->
-            <div class="case"
-                 data-index="11" data-type="property"
-                 style="grid-row:2;grid-column:11;">
-                <div class="bande bande-gauche" style="background:var(--green)"></div>
-                <div class="case-nom">Avenue de Breteuil</div>
-                <div class="case-prix">300€</div>
-            </div>
-
-            <!-- index 12 : Compagnie d'Électricité -->
-            <div class="case"
-                 data-index="12" data-type="utility"
-                 style="grid-row:3;grid-column:11;">
-                <div class="bande bande-gauche" style="background:var(--green)"></div>
-                <div class="case-nom">Avenue Foch</div>
-                <div class="case-prix">300€</div>
-            </div>
-
-            <!-- index 13 : Avenue de Neuilly -->
-            <div class="case"
-                 data-index="13" data-type="community"
-                 style="grid-row:4;grid-column:11;">
-                <div class="case-icone">📦</div>
-                <div class="case-nom">Caisse Communauté</div>
-            </div>
-
-            <!-- index 14 : Rue de Paradis -->
-            <div class="case"
-                 data-index="14" data-type="property"
-                 style="grid-row:5;grid-column:11;">
-                <div class="bande bande-gauche" style="background:var(--green)"></div>
-                <div class="case-nom">Boulevard des Capucines</div>
-                <div class="case-prix">320€</div>
-            </div>
-
-            <!-- index 15 : Gare de Lyon -->
-            <div class="case"
-                 data-index="15" data-type="station"
-                 style="grid-row:6;grid-column:11;">
-                <div class="case-icone">🚉</div>
-                <div class="case-nom">Gare Saint-Lazare</div>
-                <div class="case-prix">200€</div>
-            </div>
-
-            <!-- index 16 : Avenue Mozart -->
-            <div class="case"
-                 data-index="16" data-type="chance"
-                 style="grid-row:7;grid-column:11;">
-                <div class="case-icone">🃏</div>
-                <div class="case-nom">Chance</div>
-            </div>
-
-            <!-- index 17 : Caisse Communauté -->
-            <div class="case"
-                 data-index="17" data-type="property"
-                 style="grid-row:8;grid-column:11;">
-                <div class="bande bande-gauche" style="background:var(--darkblue)"></div>
-                <div class="case-nom">Avenue des Champs-Élysées</div>
-                <div class="case-prix">350€</div>
-            </div>
-
-            <!-- index 18 : Boulevard Saint-Michel -->
-            <div class="case"
-                 data-index="18" data-type="tax"
-                 style="grid-row:9;grid-column:11;">
-                <div class="case-icone">💎</div>
-                <div class="case-nom">Taxe de Luxe</div>
-                <div class="case-prix">100€</div>
-            </div>
-
-            <!-- index 19 : Place Pigalle -->
-            <div class="case"
-                 data-index="19" data-type="property"
-                 style="grid-row:10;grid-column:11;">
-                <div class="bande bande-gauche" style="background:var(--darkblue)"></div>
-                <div class="case-nom">Rue de la Paix</div>
-                <div class="case-prix">400€</div>
-            </div>
-
-            <!-- ══════════════════════════════════════════════
-                 RANGÉE HAUT (index 20 → 30, grid-row:11)
-                 ══════════════════════════════════════════════ -->
-
-            <!-- index 20 : Parc Gratuit (corner) -->
-            <div class="case coin coin-parc"
-                 data-index="20" data-type="free-parking"
-                 style="grid-row:11;grid-column:11;">
-                <div class="coin-libelle">🌳 Parc<br>Gratuit</div>
-            </div>
-
-            <!-- index 21 : Place Pigalle -->
-            <div class="case"
-                 data-index="21" data-type="property"
-                 style="grid-row:11;grid-column:10;">
-                <div class="bande bande-haut" style="background:var(--orange)"></div>
-                <div class="case-nom">Place Pigalle</div>
-                <div class="case-prix">200€</div>
-            </div>
-
-            <!-- index 22 : Boulevard Saint-Michel -->
-            <div class="case"
-                 data-index="22" data-type="property"
-                 style="grid-row:11;grid-column:9;">
-                <div class="bande bande-haut" style="background:var(--orange)"></div>
-                <div class="case-nom">Boulevard Saint-Michel</div>
-                <div class="case-prix">180€</div>
-            </div>
-
-            <!-- index 23 : Caisse Communauté -->
-            <div class="case"
-                 data-index="23" data-type="community"
-                 style="grid-row:11;grid-column:8;">
-                <div class="case-icone">📦</div>
-                <div class="case-nom">Caisse Communauté</div>
-            </div>
-
-            <!-- index 24 : Avenue Mozart -->
-            <div class="case"
-                 data-index="24" data-type="property"
-                 style="grid-row:11;grid-column:7;">
-                <div class="bande bande-haut" style="background:var(--orange)"></div>
-                <div class="case-nom">Avenue Mozart</div>
-                <div class="case-prix">180€</div>
-            </div>
-
-            <!-- index 25 : Gare de Lyon -->
-            <div class="case"
-                 data-index="25" data-type="station"
-                 style="grid-row:11;grid-column:6;">
-                <div class="case-icone">🚉</div>
-                <div class="case-nom">Gare de Lyon</div>
-                <div class="case-prix">200€</div>
-            </div>
-
-            <!-- index 26 : Rue de Paradis -->
-            <div class="case"
-                 data-index="26" data-type="property"
-                 style="grid-row:11;grid-column:5;">
-                <div class="bande bande-haut" style="background:var(--pink)"></div>
-                <div class="case-nom">Rue de Paradis</div>
-                <div class="case-prix">160€</div>
-            </div>
-
-            <!-- index 27 : Avenue de Neuilly -->
-            <div class="case"
-                 data-index="27" data-type="property"
-                 style="grid-row:11;grid-column:4;">
-                <div class="bande bande-haut" style="background:var(--pink)"></div>
-                <div class="case-nom">Avenue de Neuilly</div>
-                <div class="case-prix">140€</div>
-            </div>
-
-            <!-- index 28 : Compagnie d'Électricité -->
-            <div class="case"
-                 data-index="28" data-type="utility"
-                 style="grid-row:11;grid-column:3;">
-                <div class="case-icone">⚡</div>
-                <div class="case-nom">Compagnie d'Électricité</div>
-                <div class="case-prix">150€</div>
-            </div>
-
-            <!-- index 29 : Boulevard de la Villette -->
-            <div class="case"
-                 data-index="29" data-type="property"
-                 style="grid-row:11;grid-column:2;">
-                <div class="bande bande-haut" style="background:var(--pink)"></div>
-                <div class="case-nom">Boulevard de la Villette</div>
-                <div class="case-prix">140€</div>
-            </div>
-
-            <!-- index 30 : Prison / Simple Visite (corner) -->
-            <div class="case coin coin-prison"
-                 data-index="30" data-type="jail"
-                 style="grid-row:11;grid-column:1;">
-                <div class="coin-libelle">🔒 Prison /<br>Simple Visite</div>
-            </div>
-
-            <!-- ══════════════════════════════════════════════
-                 COLONNE GAUCHE (index 31 → 39, grid-column:1)
-                 ══════════════════════════════════════════════ -->
-
-            <!-- index 31 : Boulevard de la Villette (left col) -->
-            <div class="case"
-                 data-index="31" data-type="property"
-                 style="grid-row:10;grid-column:1;">
-                <div class="bande bande-droite" style="background:var(--orange)"></div>
-                <div class="case-nom">Place Pigalle</div>
-                <div class="case-prix">200€</div>
-            </div>
-
-            <!-- index 32 : Boulevard Saint-Michel -->
-            <div class="case"
-                 data-index="32" data-type="property"
-                 style="grid-row:9;grid-column:1;">
-                <div class="bande bande-droite" style="background:var(--orange)"></div>
-                <div class="case-nom">Boulevard Saint-Michel</div>
-                <div class="case-prix">180€</div>
-            </div>
-
-            <!-- index 33 : Caisse Communauté -->
-            <div class="case"
-                 data-index="33" data-type="community"
-                 style="grid-row:8;grid-column:1;">
-                <div class="case-icone">📦</div>
-                <div class="case-nom">Caisse Communauté</div>
-            </div>
-
-            <!-- index 34 : Avenue Mozart -->
-            <div class="case"
-                 data-index="34" data-type="property"
-                 style="grid-row:7;grid-column:1;">
-                <div class="bande bande-droite" style="background:var(--orange)"></div>
-                <div class="case-nom">Avenue Mozart</div>
-                <div class="case-prix">180€</div>
-            </div>
-
-            <!-- index 35 : Gare de Lyon -->
-            <div class="case"
-                 data-index="35" data-type="station"
-                 style="grid-row:6;grid-column:1;">
-                <div class="case-icone">🚉</div>
-                <div class="case-nom">Gare de Lyon</div>
-                <div class="case-prix">200€</div>
-            </div>
-
-            <!-- index 36 : Rue de Paradis -->
-            <div class="case"
-                 data-index="36" data-type="property"
-                 style="grid-row:5;grid-column:1;">
-                <div class="bande bande-droite" style="background:var(--pink)"></div>
-                <div class="case-nom">Rue de Paradis</div>
-                <div class="case-prix">160€</div>
-            </div>
-
-            <!-- index 37 : Avenue de Neuilly -->
-            <div class="case"
-                 data-index="37" data-type="property"
-                 style="grid-row:4;grid-column:1;">
-                <div class="bande bande-droite" style="background:var(--pink)"></div>
-                <div class="case-nom">Avenue de Neuilly</div>
-                <div class="case-prix">140€</div>
-            </div>
-
-            <!-- index 38 : Compagnie d'Électricité -->
-            <div class="case"
-                 data-index="38" data-type="utility"
-                 style="grid-row:3;grid-column:1;">
-                <div class="case-icone">⚡</div>
-                <div class="case-nom">Compagnie d'Électricité</div>
-                <div class="case-prix">150€</div>
-            </div>
-
-            <!-- index 39 : Boulevard de la Villette -->
-            <div class="case"
-                 data-index="39" data-type="property"
-                 style="grid-row:2;grid-column:1;">
-                <div class="bande bande-droite" style="background:var(--pink)"></div>
-                <div class="case-nom">Boulevard de la Villette</div>
-                <div class="case-prix">140€</div>
-            </div>
-
         </div>
     </section>
 
+    <!-- ══ Stock panel ══ -->
     <div class="stock-app-default">
         <h1>STOCK MANAGEMENT</h1>
-        <h3>OWNER : <span>TAHIANA</span></h3>
+        <h3>OWNER : <span></span></h3>
         <hr>
         <div class="stock-summary">
             <div class="stock-money">
-                <h3>Resources :</h3>
-                <h3>$1000</h3>
+                <h3>Balance :</h3>
+                <h3>£0</h3>
             </div>
             <div class="stock-expenses">
-                <h3>Expenses :</h3>
-                <h3>- $200</h3>
+                <h3>Properties :</h3>
+                <h3>£0</h3>
             </div>
         </div>
         <div class="stock-information">
-            <h3>Player expenses information</h3>
-            <div class="bought-item">
-                <p>HOUSE</p>
-                <div class="price">
-                    <p>$200</p>
-                </div>
-            </div>
+            <h3>Properties owned</h3>
         </div>
         <div class="exit-stock">
             <i class="fa-solid fa-x"></i>
         </div>
     </div>
 
+    <!-- ══ Dice panel ══ -->
     <div class="roll-dice-default">
-        <button class="roll-button">Roll dice <i class="fa-solid fa-dice fa-xl"></i></button>
-        <h3>OUTPUT 1 : <span class="dice-number"></span><span class="dice-face"><i id="dice-icon" class=""></i></span></h3>
-        <h3>OUTPUT 2 : <span class="dice-number2"></span><span class="dice-face"><i id="dice-icon2" class=""></i></span></h3>
+        <button class="roll-button">Roll Dice <i class="fa-solid fa-dice fa-xl"></i></button>
+        <h3>Die 1 : <span class="dice-number"></span>
+            <span class="dice-face"><i id="dice-icon" class=""></i></span></h3>
+        <h3>Die 2 : <span class="dice-number2"></span>
+            <span class="dice-face"><i id="dice-icon2" class=""></i></span></h3>
     </div>
 
-    
-    
-    
-    
     <script type="module" src="js/script.js"></script>
 </body>
-
 </html>
